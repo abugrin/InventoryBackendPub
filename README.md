@@ -1,2 +1,2 @@
-Inventory Backend
+# Inventory Backend
 Demo equipment tracker
