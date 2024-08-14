@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: mysql
+    image: 'mysql:8.0'
+    environment:
+      - 'MYSQL_DATABASE=inventory'
+      - 'MYSQL_PASSWORD=pass'
+      - 'MYSQL_ROOT_PASSWORD=pass'
+      - 'MYSQL_USER=dbuser'
+    ports:
+      - '3306:3306'
+    volumes:
+      - C:\DEV\mysql_data:/var/lib/mysql
+    networks:
+      - inventory-net
+
+  #inventory:
+  #  container_name: inventory
+  #  build:
+  #    context: .
+      #dockerfile: Dockerfile
+
+    ##image: openjdk:20
+    #ports:
+    #  - '8080'
+    #working_dir: /tmp
+    #volumes:
+    #  - C:\Dev\idea_workspace\Inventory2\out\artifacts\Inventory_jar:/tmp
+    #entrypoint: java -jar /tmp/Inventory.jsr
+    #depends_on:
+    #  mysql:
+    #    condition: service_started
+    #  #command: java -jar /tmp/Inventory.jar
+    #networks:
+    #  - inventory-net
+    #environment:
+      #- 'DB_HOST=mysql'
+      #- 'SPRING_DATASOURCE_URL=jdbc:mysql://mysql/inventory'
+      #- 'SPRING_DATASOURCE_USERNAME=dbuser'
+      #- 'SPRING_DATASOURCE_PASSWORD=pass'
+
+networks:
+  inventory-net:
+

@@ -1,0 +1,1 @@
+ALTER TABLE event MODIFY description varchar(255);
